@@ -1,5 +1,10 @@
 # Disaster Response Pipeline Project
 
+In the Project Workspace, you'll find a data set containing real messages that were sent during disaster events. You will be creating a machine learning pipeline to categorize these events so that you can send the messages to an appropriate disaster relief agency.
+
+
+
+
 app
 | - template
 | |- master.html # main page of web app
@@ -22,6 +27,7 @@ READ_ME.md
 
 
 0. pip install -U scikit-learn
+1. 
 # this is for updating scikit learn packages otherwise some functions will not work
 
 1. Run the following commands in the project's root directory to set up your database and model.
