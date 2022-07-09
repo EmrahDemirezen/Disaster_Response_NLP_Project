@@ -26,6 +26,8 @@ def clean_data(df):
         categories[column] = categories[column].str.split("-",expand = False).str[1]
     # convert column from string to numeric
         categories[column] = categories[column].astype('int')
+    # convert to 1 all values highr than 1  
+        categories[column] = categories[column].apply(lambda x: 1 if x < 1)
     # drop the original categories column from `df`
     df=df.drop(["categories"], axis=1)
     # concatenate the original dataframe with the new `categories` dataframe
@@ -35,6 +37,7 @@ def clean_data(df):
     # drop duplicates
     df.drop_duplicates(inplace=True)
     return df
+
 def save_data(df, database_filename):
     engine = create_engine('sqlite:///'+ database_filename)
     df.to_sql('DisasterResponse', engine, index=False, if_exists = "replace")
